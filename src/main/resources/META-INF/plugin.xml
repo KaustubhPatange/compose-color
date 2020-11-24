@@ -1,19 +1,28 @@
-<idea-plugin>
-    <id>com.github.kaustubhpatange.composecolorplugin</id>
-    <name>compose-color-plugin</name>
-    <vendor>kaustubhpatange</vendor>
+<idea-plugin url="https://github.com/KaustubhPatange/compose-color">
+    <id>com.github.kaustubhpatange.composecolor</id>
+    <name>Highlight Colors for Compose</name>
+    <version>0.0.1</version>
+    <vendor url="https://github.com/KaustubhPatange">Kaustubh Patange</vendor>
+
+    <description><![CDATA[
+        Draws rectangle on editor's gutter denoting the color represented by <pre>androidx.compose.ui.graphics.Color</pre><br/>
+        Clicking on the color icon from the gutter will open a color picker dialog to modify the color.
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <b>0.0.1</b>
+        - Initial release
+        - Open-sourced on Github
+        ]]>
+    </change-notes>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.kaustubhpatange.composecolorplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.kaustubhpatange.composecolorplugin.services.MyProjectService"/>
+        <codeInsight.lineMarkerProvider
+                language="kotlin"
+                implementationClass="com.github.kaustubhpatange.composecolor.DemoLineMarkerProvider"/>
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.kaustubhpatange.composecolorplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>

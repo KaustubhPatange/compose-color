@@ -1,4 +1,4 @@
-package com.github.kaustubhpatange.composecolorplugin
+package com.github.kaustubhpatange.composecolor
 
 import com.intellij.codeHighlighting.Pass
 import com.intellij.codeInsight.daemon.GutterIconNavigationHandler
@@ -29,17 +29,26 @@ class DemoLineMarkerProvider : RelatedItemLineMarkerProvider() {
             val colorHex: String = REFERENCE_EXPRESSION.toRegex().find(element.text)?.groups?.get(3)?.value ?: return
             if (colorHex.length == 10 && colorHex.startsWith("0XFF", true)) {
                 val color = Color.decode("#" + colorHex.substring(4))
-                val lineMarker = object : RelatedItemLineMarkerInfo<PsiElement>(element, element.textRange, getColorIcon(color), Pass.UPDATE_ALL, null,
-                        GutterIconNavigationHandler<PsiElement> { _, elt: PsiElement ->
-                            ColorPicker.showColorPickerPopup(elt.project, color) { c: Color, _ ->
-                               runWriteAction {
-                                   val text = "Color(0X${Integer.toHexString(c.rgb).toUpperCase()})"
-                                   val psiFile = PsiFileFactory.getInstance(element.project).createFileFromText(element.language, text)
-                                   element.lastChild.replace(psiFile.children[2])
-                                   CodeStyleManager.getInstance(element.project).reformat(element)
-                               }
+                val lineMarker = object : RelatedItemLineMarkerInfo<PsiElement>(
+                    element,
+                    element.textRange,
+                    getColorIcon(color),
+                    Pass.UPDATE_ALL,
+                    null,
+                    GutterIconNavigationHandler<PsiElement> { _, elt: PsiElement ->
+                        ColorPicker.showColorPickerPopup(elt.project, color) { c: Color, _ ->
+                            if (c.rgb == color.rgb) return@showColorPickerPopup
+                            runWriteAction {
+                                val text = "Color(0X${Integer.toHexString(c.rgb).toUpperCase()})"
+                                val psiFile = PsiFileFactory.getInstance(element.project).createFileFromText(element.language, text)
+                                element.lastChild.replace(psiFile.children[2])
+                                CodeStyleManager.getInstance(element.project).reformat(element)
                             }
-                        }, GutterIconRenderer.Alignment.CENTER, emptyList()) {
+                        }
+                    },
+                    GutterIconRenderer.Alignment.CENTER,
+                    emptyList()
+                ) {
                 }
                 result.add(lineMarker)
             }

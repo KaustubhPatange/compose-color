@@ -1,1 +1,1 @@
-rootProject.name = "compose-color-plugin"
+rootProject.name = "compose-color"
