@@ -14,7 +14,7 @@ $modifier $name = Color($int)
 ```
 
 ```diff
-- Color(0XFF000000) // Warning: Expressions not supported
+- Color(0XFF000000) // Not supported
 + val black = Color(0XFF000000)
 ```
 
