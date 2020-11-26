@@ -20,7 +20,7 @@ $modifier $name = Color($int)
 
 <>
 
-<img src="art/showcase.png"/>
+<img src="art/showcase.gif"/>
 
 <>
 
