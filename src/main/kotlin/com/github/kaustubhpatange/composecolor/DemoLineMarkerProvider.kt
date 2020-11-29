@@ -36,13 +36,15 @@ class DemoLineMarkerProvider : RelatedItemLineMarkerProvider() {
                     Pass.UPDATE_ALL,
                     null,
                     GutterIconNavigationHandler<PsiElement> { _, elt: PsiElement ->
-                        ColorPicker.showColorPickerPopup(elt.project, color) { c: Color, _ ->
-                            if (c.rgb == color.rgb) return@showColorPickerPopup
-                            runWriteAction {
-                                val text = "Color(0X${Integer.toHexString(c.rgb).toUpperCase()})"
-                                val psiFile = PsiFileFactory.getInstance(element.project).createFileFromText(element.language, text)
-                                element.lastChild.replace(psiFile.children[2])
-                                CodeStyleManager.getInstance(element.project).reformat(element)
+                        if (elt.containingFile.isWritable) {
+                            ColorPicker.showColorPickerPopup(elt.project, color) { c: Color, _ ->
+                                if (c.rgb == color.rgb) return@showColorPickerPopup
+                                runWriteAction {
+                                    val text = "Color(0X${Integer.toHexString(c.rgb).toUpperCase()})"
+                                    val psiFile = PsiFileFactory.getInstance(element.project).createFileFromText(element.language, text)
+                                    element.lastChild.replace(psiFile.children[2])
+                                    CodeStyleManager.getInstance(element.project).reformat(element)
+                                }
                             }
                         }
                     },
