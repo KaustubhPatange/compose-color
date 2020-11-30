@@ -40,9 +40,11 @@ class DemoLineMarkerProvider : RelatedItemLineMarkerProvider() {
                             ColorPicker.showColorPickerPopup(elt.project, color) { c: Color, _ ->
                                 if (c.rgb == color.rgb) return@showColorPickerPopup
                                 runWriteAction {
-                                    val text = "Color(0X${Integer.toHexString(c.rgb).toUpperCase()})"
-                                    val psiFile = PsiFileFactory.getInstance(element.project).createFileFromText(element.language, text)
-                                    element.lastChild.replace(psiFile.children[2])
+                                    val original = "Color(0x${Integer.toHexString(color.rgb).toUpperCase()})"
+                                    val new = "Color(0x${Integer.toHexString(c.rgb).toUpperCase()})"
+                                    val psiFile = PsiFileFactory.getInstance(element.project).createFileFromText(element.language, new)
+                                    val rElement = element.children.find { it.text.equals(original, ignoreCase = true) }
+                                    rElement?.replace(psiFile.children[2])
                                     CodeStyleManager.getInstance(element.project).reformat(element)
                                 }
                             }
