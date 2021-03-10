@@ -3,6 +3,8 @@
 ![Build](https://github.com/KaustubhPatange/compose-color-plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/com.github.kaustubhpatange.composecolor.svg)](https://plugins.jetbrains.com/plugin/15439-highlight-colors-for-compose)
 
+**<font color="red">Android Studio Arctic Fox Canary 7 has this functionality built-in!</font>**
+
 A plugin for **Intellij** based IDEs to draw rectangle on the editor's gutter denoting the color represented by `androidx.compose.ui.graphics.Color`
 
 Clicking on the color icon from the gutter will open a color picker dialog to modify the color.
