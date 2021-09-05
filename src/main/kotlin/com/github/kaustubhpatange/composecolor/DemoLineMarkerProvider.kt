@@ -20,10 +20,10 @@ import javax.swing.ImageIcon
 class DemoLineMarkerProvider : RelatedItemLineMarkerProvider() {
     companion object {
         const val REFERENCE_EXPRESSION = "val(.*?)=\\s+?Color\\((\\s+)?(.*?)(\\s+)?\\)"
-        const val RGBA_EXPRESSION = "(\\d+)f(\\s+)?,(\\s+)?(\\d+)f(\\s+)?,(\\s+)?(\\d+)f(,(\\s+)?(\\d+)f)?"
+        const val RGBA_EXPRESSION = "(\\d+)f?(\\s+)?,(\\s+)?(\\d+)f?(\\s+)?,(\\s+)?(\\d+)f?(,(\\s+)?(\\d+)f?)?"
     }
 
-    override fun collectNavigationMarkers(element: PsiElement, result: MutableCollection<in RelatedItemLineMarkerInfo<PsiElement>>) {
+    override fun collectNavigationMarkers(element: PsiElement, result: MutableCollection<in RelatedItemLineMarkerInfo<*>>) {
         if (element.node.elementType.toString() != JsonElementTypes::PROPERTY.name) return
 
         if (REFERENCE_EXPRESSION.toRegex().containsMatchIn(element.text)) {

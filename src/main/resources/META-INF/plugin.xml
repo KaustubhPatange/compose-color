@@ -1,7 +1,7 @@
 <idea-plugin url="https://github.com/KaustubhPatange/compose-color">
     <id>com.github.kaustubhpatange.composecolor</id>
     <name>Highlight Colors for Compose</name>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
     <vendor url="https://github.com/KaustubhPatange">Kaustubh Patange</vendor>
 
     <description><![CDATA[
@@ -10,10 +10,13 @@
     ]]></description>
 
     <change-notes><![CDATA[
+        <b>0.0.5</b>
+        - Support for non-floating points RGBA.
+        - Support for IDEA 2021+.
         <b>0.0.4</b>
-        - Added support for Color(r,g,b,a)
+        - Added support for Color(r,g,b,a).
         <b>0.0.3</b>
-        - Improved: Color modifying strategy
+        - Improved: Color modifying strategy.
         <b>0.0.2</b>
         - Fixed: Issue with modifying color on non-writable files.
         <b>0.0.1</b>
