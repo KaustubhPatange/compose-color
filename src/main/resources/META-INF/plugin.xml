@@ -1,7 +1,7 @@
 <idea-plugin url="https://github.com/KaustubhPatange/compose-color">
     <id>com.github.kaustubhpatange.composecolor</id>
     <name>Highlight Colors for Compose</name>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <vendor url="https://github.com/KaustubhPatange">Kaustubh Patange</vendor>
 
     <description><![CDATA[
