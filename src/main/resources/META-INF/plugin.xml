@@ -5,23 +5,40 @@
     <vendor url="https://github.com/KaustubhPatange">Kaustubh Patange</vendor>
 
     <description><![CDATA[
-        Draws rectangle on editor's gutter denoting the color represented by <pre>androidx.compose.ui.graphics.Color</pre><br/>
+        Draws rectangle on editor's gutter denoting the color represented by <code>androidx.compose.ui.graphics.Color</code><br/>
         Clicking on the color icon from the gutter will open a color picker dialog to modify the color.
+        <br><br>
+        <a href="https://github.com/KaustubhPatange/compose-color">GitHub</a> | <a href="https://github.com/KaustubhPatange/compose-color/issues">Issues</a>
     ]]></description>
 
     <change-notes><![CDATA[
-        <b>0.0.5</b>
-        - Support for non-floating points RGBA.
-        - Support for IDEA 2021+.
-        <b>0.0.4</b>
-        - Added support for Color(r,g,b,a).
-        <b>0.0.3</b>
-        - Improved: Color modifying strategy.
-        <b>0.0.2</b>
-        - Fixed: Issue with modifying color on non-writable files.
-        <b>0.0.1</b>
-        - Initial release
-        - Open-sourced on Github
+        <h4>0.0.6</h4>
+        <ul>
+            <li>Added: Support for IDEA 2021.3.3+.</li>
+            <li>Improved: Plugin info.</li>
+        </ul>
+        <h4>0.0.5</h4>
+        <ul>
+            <li>Added: Support for non-floating points RGBA.</li>
+            <li>Added: Support for IDEA 2021+.</li>
+        </ul>
+        <h4>0.0.4</h4>
+        <ul>
+            <li>Added: support for Color(r,g,b,a).</li>
+        </ul>
+        <h4>0.0.3</h4>
+        <ul>
+            <li>Improved: Color modifying strategy.</li>
+        </ul>
+        <h4>0.0.2</h4>
+        <ul>
+            <li>Fixed: Issue with modifying color on non-writable files.</li>
+        </ul>
+        <h4>0.0.1</h4>
+        <ul>
+            <li>Initial release</li>
+            <li>Open-sourced on Github</li>
+        </ul>
         ]]>
     </change-notes>
 
