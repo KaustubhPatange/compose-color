@@ -9,7 +9,7 @@ A plugin for **Intellij** based IDEs to draw rectangle on the editor's gutter de
 
 Clicking on the color icon from the gutter will open a color picker dialog to modify the color.
 
-Only those property satisfying the following pattern will be highlighted.
+Only the properties satisfying the following pattern will be highlighted:
 
 ```kotlin
 $modifier $name = Color($int)
